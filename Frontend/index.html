@@ -1,0 +1,742 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>PANEL</title>
+</head>
+
+<body>
+
+    <h1>The XMLHttpRequest Object</h1>
+
+    <button type="button" onclick="loadDoc()">Request data</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            var url = "http://127.0.0.1:8000/api/v1/panel/";
+            xhttp.open("GET", url, true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var panels = JSON.parse(this.responseText);
+                    document.getElementById("demo").innerHTML = panels[0]["title"];
+                }
+            };
+        }
+    </script>
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>
+        Üniversite Örnek Sayfası | DuyuruTV
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet" type="text/css" />
+    <link id="csstasarim" href="css/stil_lacivert.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="../../ico.png" />
+    <link href="css/stil_yeni.css" rel="stylesheet" />
+    <script type="text/javascript">
+        var ilke = 0;
+        var timer1ID;
+        var timer60ID;
+        function timer1_Tick() {
+            var now = new Date();
+            if (now.getHours() < 10)
+                hours = "0" + now.getHours();
+            else
+                hours = now.getHours();
+            if (now.getMinutes() < 10)
+                minutes = "0" + now.getMinutes();
+            else
+                minutes = now.getMinutes();
+
+            if (now.getSeconds() < 10)
+                seconds = "0" + now.getSeconds();
+            else
+                seconds = now.getSeconds();
+
+            var saatt = hours + ":" + minutes + ":" + seconds;
+
+            document.getElementById("saatim").innerHTML = saatt;
+
+            if (minutes + ":" + seconds == "13:13") {
+                $.ajax({
+                    url: 'ico.png',
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function (data) {
+                    }
+                });
+            }
+        }
+        $(document).ready(function () {
+            timer1ID = setInterval(timer1_Tick, 1000);
+        });
+    </script>
+
+</head>
+
+<body>
+    <form method="post" action="./default.aspx" id="form1">
+        <div class="aspNetHidden">
+            <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+            <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+                value="qYx3o/KrK8W67sHOor+7amYhs1dmRcMe2Q71rbVWsgLXBbxjNEIBDmPtYR+vxWLaogEPTnb7gKdMauyn1CmcexOlnfkPaj5k+zwwQ8Gm1GJSoozsuZY/4WCtLlpqawNvi15caZAh0maSa4Cqy7qFgnCWzIhMPfxaV521u/nt7Pkv1XVo0lg1ryIIWzjoL/KjeuCMjaSCVnJpuMNTExpHELaZIUqlU/Yc1xp4wup6erI27WRmy7BQwTYVJb4jjxtbfLLYcq2+agFCYORz6ljlTo69vGMQGgGOInHi2WgtYVQgHyOpHm2+ox5YI5xCwT8oi1wGCPSY/0bBk42ijZDUTSYwPv7Q1BHjWTDCA2kfof8eax/8" />
+        </div>
+
+        <script type="text/javascript">
+            var theForm = document.forms['form1'];
+            if (!theForm) {
+                theForm = document.form1;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+        </script>
+
+
+        <script
+            src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZNzaKEKZLM8_VVkElHTje0gOu0CvVOKyAla5hPITxKD_wzjeMg2&amp;t=636355015360000000"
+            type="text/javascript"></script>
+
+
+        <script
+            src="/ScriptResource.axd?d=yeSNAJTOPtPimTGCAo3LlScPNERsq6_YE6-18qwBOfMcKdqc3IIEYKrHA-CXsIJUWSHFZITuIac1Z0VjdfHjolrvgIEnGsqBBLO_NLFOG_PNi2PU0&amp;t=23c9c237"
+            type="text/javascript"></script>
+        <script type="text/javascript">
+            if (typeof (Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+        </script>
+
+        <script
+            src="/ScriptResource.axd?d=DT3YJR8QaqV61-teuz0hgrBmWQENdu662v2qVYqDPU7UslNcNf45PgSNwfxMkm5Zy9A9yt_KL4xvoBd0d6QGzeN8kpcinAe0K2zmRmG4RVjYTZ1-Zf4-vVw3ZJVPGBHmQxtFjw2&amp;t=23c9c237"
+            type="text/javascript"></script>
+        <div class="aspNetHidden">
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="16F1B434" />
+        </div>
+        <script type="text/javascript">
+            Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', [], [], [], 90, '');
+        </script>
+
+
+
+        <div class="slider_alti_zemin orta_bolum">
+            <div id="marketslider" class="carousel-fade carousel slide" data-interval="10000" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="../../temp/dosyalar/canliizle/png/fon.png" class="fon" />
+                        <div class="ilkekran_yazi_kutu">
+                            <p class="ilkekran_yazi">
+                                ÖRNEK ÜNİVERSİTE<br />
+                                KANALINA HOŞ GELDİNİZ...<br />
+                                <br />
+                                <img style='width: 20%'
+                                    src='../../temp/dosyalar/canliizle/png/duyurutv_logo_sagalt_buyuk.png' />
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class='item'>
+                        <img src="../demo/galeri/universite_kurs_afis.jpg" class="galeri_resim" />
+
+                    </div>
+                    <div class='item'>
+                        <img src="Slider/Universite_Kutuphane.jpg" style="width: 100%;" />
+                        <p style='font-size: 3vw; position: absolute; padding-left: 2%; top: 87%; height: 8%; width: 80%;'
+                            class='slidersaga'>
+                            KÜTÜPHANE...
+                        </p>
+
+                        <img src="../demo/galeri/Universite_Kutuphane.jpg" class="galeri_resim" />
+                        <p class="slidersaga galeri_yazi">KÜTÜPHANE...</p>
+                    </div>
+
+
+
+
+                    <div class="item">
+                        <img src="../../temp/dosyalar/canliizle/png/fon.png" class="fon" />
+                        <p class="slidersola fon_sayfa_baslik">DERS PROGRAMI</p>
+                        <div class="dersprogrami_kutu">
+                            <table class="dersprogrami_table" style="font-size: 1.3vw;">
+                                <tbody>
+                                    <tr class="dersprogrami_tablo_basliksatiri">
+                                        <td class="tablosutunsecili" style="width: 13%"></td>
+                                        <td class="tablosutunsecili"
+                                            style="width: 13%; text-align: center; font-size: 1.5vw;">Ders 1</td>
+                                        <td class="tablosutunsecili"
+                                            style="width: 13%; text-align: center; font-size: 1.5vw;">Ders 2</td>
+                                        <td class="tablosutunsecili"
+                                            style="width: 13%; text-align: center; font-size: 1.5vw;">Ders 3</td>
+                                        <td class="tablosutunsecili"
+                                            style="width: 13%; text-align: center; font-size: 1.5vw;">Ders 4</td>
+                                        <td class="tablosutunsecili"
+                                            style="width: 13%; text-align: center; font-size: 1.5vw;">Ders 5</td>
+                                        <td class="tablosutunsecili"
+                                            style="width: 13%; text-align: center; font-size: 1.5vw;">Ders 6</td>
+                                        <td class="tablosutunsecili"
+                                            style="width: 13%; text-align: center; font-size: 1.5vw;">Ders 7</td>
+                                        <td class="tablosutunsecili"
+                                            style="width: 13%; text-align: center; font-size: 1.5vw;">Ders 8</td>
+                                    </tr>
+                                    <tr class="dersprogrami_tablo_satir">
+                                        <td class="tablosutunstandart">iŞLETME 1</td>
+                                        <td class="tablosutunstandart">İktisada Giriş I<br>
+                                            (AYŞE ÇALIŞKAN)</td>
+                                        <td class="tablosutunstandart">İktisada Giriş I<br>
+                                            (AYŞE ÇALIŞKAN)</td>
+                                        <td class="tablosutunstandart">Davranış Bilimleri I<br>
+                                            (HASAN AYDIN)</td>
+                                        <td class="tablosutunstandart">Davranış Bilimleri I<br>
+                                            (HASAN AYDIN)</td>
+                                        <td class="tablosutunstandart">Genel Matematik<br>
+                                            (MUTLU ENES)</td>
+                                        <td class="tablosutunstandart">Genel Matematik<br>
+                                            (MUTLU ENES)</td>
+                                        <td class="tablosutunstandart">Genel Matematik<br>
+                                            (MUTLU ENES)</td>
+                                        <td class="tablosutunstandart">Genel Matematik<br>
+                                            (MUTLU ENES)</td>
+                                    </tr>
+                                    <tr class="dersprogrami_tablo_satir">
+                                        <td class="tablosutunstandart">İŞLETME 2</td>
+                                        <td class="tablosutunstandart">Tüketici Davranışları<br>
+                                            (ALİ BİLGİN)</td>
+                                        <td class="tablosutunstandart">Tüketici Davranışları<br>
+                                            (ALİ BİLGİN)</td>
+                                        <td class="tablosutunstandart">Tüketici Davranışları<br>
+                                            (ALİ BİLGİN)</td>
+                                        <td class="tablosutunstandart">Tüketici Davranışları<br>
+                                            (ALİ BİLGİN)</td>
+                                        <td class="tablosutunstandart">İşletme Yönetimi<br>
+                                            (FATMA CESUR)</td>
+                                        <td class="tablosutunstandart">İşletme Yönetimi<br>
+                                            (FATMA CESUR)</td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                    </tr>
+                                    <tr class="dersprogrami_tablo_satir">
+                                        <td class="tablosutunstandart">ELEKTRİK 1</td>
+                                        <td class="tablosutunstandart">Fizik I<br>
+                                            (MEHMET SARAL)</td>
+                                        <td class="tablosutunstandart">Fizik I<br>
+                                            (MEHMET SARAL)</td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">İngilizce I<br>
+                                            (HASAN DUR)</td>
+                                        <td class="tablosutunstandart">İngilizce I
+                                            <br>
+                                            (HASAN DUR)</td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                    </tr>
+                                    <tr class="dersprogrami_tablo_satir">
+                                        <td class="tablosutunstandart">BİLGİSAYAR MÜHENDİSLİĞİ 2</td>
+                                        <td class="tablosutunstandart">Veri Yapıları<br>
+                                            (AHMET İLAN)</td>
+                                        <td class="tablosutunstandart">Veri Yapıları<br>
+                                            (AHMET İLAN)</td>
+                                        <td class="tablosutunstandart">Veri Yapıları<br>
+                                            (AHMET İLAN)</td>
+                                        <td class="tablosutunstandart">Veri Yapıları<br>
+                                            (AHMET İLAN)</td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                    </tr>
+                                    <tr class="dersprogrami_tablo_satir">
+                                        <td class="tablosutunstandart">DİŞ HEKİMLİĞİ 2</td>
+                                        <td class="tablosutunstandart">Epidemiyoloji<br>
+                                            (SADİ KAYA)</td>
+                                        <td class="tablosutunstandart">Maddeler Bilgisi<br>
+                                            (HASAN KAYA)</td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">Kimya
+                                            <br>
+                                            (DOĞUŞ AYDIN)</td>
+                                        <td class="tablosutunstandart">Kimya
+                                            <br>
+                                            (DOĞUŞ AYDIN)</td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                    </tr>
+                                    <tr class="dersprogrami_tablo_satir">
+                                        <td class="tablosutunstandart">MÜZİK ÖĞRETMENLİĞİ 1</td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                        <td class="tablosutunstandart">Ses Eğitimi - I<br>
+                                            (ŞAHİN ORTA)</td>
+                                        <td class="tablosutunstandart">Ses Eğitimi - I<br>
+                                            (ŞAHİN ORTA)</td>
+                                        <td class="tablosutunstandart">Eğitim Psikolojisi<br>
+                                            (MEHMET ORTANCA)</td>
+                                        <td class="tablosutunstandart">Eğitim Psikolojisi<br>
+                                            (MEHMET ORTANCA)</td>
+                                        <td class="tablosutunstandart">Eğitim Psikolojisi<br>
+                                            (MEHMET ORTANCA)</td>
+                                        <td class="tablosutunstandart">-<br />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="item">
+                        <img src="../../temp/dosyalar/canliizle/png/fon.png" class="fon" />
+                        <p class="slidersola fon_sayfa_baslik">TARİHTE BUGÜN</p>
+                        <img src="../../temp/dosyalar/canliizle/png/tarihte_bugun.png" class="tarihtebugun_resim" />
+                        <div class="tarihtebugun_kutu">
+                            <p class="tarihtebugun_yazi">1987-Türkiye, Avrupa Ekonomik Topluluğu'na tam üyelik için
+                                resmen başvurdu</p>
+                            <hr />
+                            <p class="tarihtebugun_yazi">1997-Türk seramik sanatçısı Seniye Fenmen'in ölümü</p>
+                            <hr />
+                            <p class="tarihtebugun_yazi">1947-Güreşçi Yaşar Doğu Avrupa Şampiyonu oldu, Türkiye milli
+                                takımı Avrupa üçüncülüğünü kazandı..</p>
+                            <hr />
+                            <p class="tarihtebugun_yazi">1894-Thomas Edison, sinemanın bir öncüsü sayılabilecek
+                                kinetoscope adlı cihazının ilk gösterisini yaptı.</p>
+                            <hr />
+                            <p class="tarihtebugun_yazi">1956-Chicago, Illinois'de video ilk kez halka tanıtıldı.</p>
+                            <hr />
+                        </div>
+                    </div>
+
+
+                    <div class='item'>
+                        <img src="../demo/galeri/Universite_Spor_Futbol_1.jpg" class="galeri_resim" />
+                        <p class="slidersaga galeri_yazi">ÜNİVERSİTELER ARASI FUTBOL TURNUVASI</p>
+                    </div>
+                    <div class='item'>
+                        <img src="../demo/galeri/Universite_Spor_Futbol_2.jpg" class="galeri_resim" />
+                        <p class="slidersaga galeri_yazi">ÜNİVERSİTELER ARASI FUTBOL TURNUVASI</p>
+                    </div>
+
+
+
+                    <div class="item">
+                        <img src="../../temp/dosyalar/canliizle/png/fon.png" class="fon" />
+                        <p class="slidersola fon_sayfa_baslik">Yüksekokul Müdürü</p>
+                        <img src="../demo/yoneticimesaji/yonetici.jpg" class="yoneticimesaji_resim" />
+                        <p class="yoneticimesaji_resim_yazi">
+                            Yüksekokul Müdürü
+                            <br />
+                            AYŞE BİLİR
+                        </p>
+                        <p class="yoneticimesaji_yazi">YÖNETİM ANLAYIŞIMIZ, İÇERİK VE BİÇİM OLARAK SORUNLARA DEĞİL,
+                            HEDEFLERE ODAKLANMAK ŞEKLİNDE OLACAKTIR. SORUNLARI ÇÖZMEYE DEĞİL, SORUNLARIN KENDİLİĞİNDEN
+                            ÇÖZÜLDÜĞÜ SİSTEMİ OLUŞTURMAYA ÇALIŞACAĞIZ.</p>
+                    </div>
+
+
+                    <div class='item'>
+                        <img src="png/fon.png" style="height: 100%; width: 100%;" />
+                        <p class="slidersola"
+                            style='text-align: right; width: 35%; position: absolute; top: 11%; right: 6px; font-size: 2.3vw'>
+                            SINAV TAKVİMİ</p>
+                        <div style='text-align: left; position: absolute; padding-left: 3%; top: 35%;'>
+                            <table style='padding: 0px; margin: 0px; height: 99%; width: 99%;'>
+                                <tr style='border-bottom-style: double; border-color: #FFFFFF;'>
+                                    <td class='tablosutunsecili' style="width: 20%">
+                                        <p style='font-size: 1.5vw; float: none;'>SINIF</p>
+                                    </td>
+                                    <td class='tablosutunsecili' style="width: 20%">
+                                        <p style='font-size: 1.5vw; float: none;'>DERSİN ADI</p>
+                                    </td>
+                                    <td class='tablosutunsecili' style="width: 15%">
+                                        <p style='font-size: 1.5vw; float: none;'>DERS SORUMLUSU</p>
+                                    </td>
+                                    <td class='tablosutunsecili' style="width: 15%">
+                                        <p style='font-size: 1.8vw; float: none;'>TARİH</p>
+                                    </td>
+                                    <td class='tablosutunsecili' style="width: 15%">
+                                        <p style='font-size: 1.8vw; float: none;'>SAAT</p>
+                                    </td>
+                                    <td class='tablosutunsecili' style="width: 15%">
+                                        <p style='font-size: 1.8vw; float: none;'>DERSLİK</p>
+                                    </td>
+                                </tr>
+                                <tr style='border-bottom-style: double; border-color: #FFFFFF;'>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Muhasebe 1 İ.Ö. </p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Ticari Matematik</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Ad SOYAD</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>14.04.2017</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>09:30</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>AMFİ</p>
+                                    </td>
+                                </tr>
+                                <tr style='border-bottom-style: double; border-color: #FFFFFF;'>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Elektronik 1</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Temel Programlama</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Ad SOYAD</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>14.04.2017</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>09:30</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>D 10</p>
+                                    </td>
+                                </tr>
+                                <tr style='border-bottom-style: double; border-color: #FFFFFF;'>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>İşletme 1 İ.Ö.</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Ticaret Hukuku</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Ad SOYAD</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>17.04.2017</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>08:30</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>D 1</p>
+                                    </td>
+                                </tr>
+                                <tr style='border-bottom-style: double; border-color: #FFFFFF;'>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Haberleşme</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Bilişim Ağları ve Veri Haberleşmesi
+                                        </p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Ad SOYAD</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>15.04.17</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>11:30</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>Derslik 8</p>
+                                    </td>
+                                </tr>
+                                <tr style='border-bottom-style: double; border-color: #FFFFFF;'>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Muhasebe 1</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Bilgi ve İletişim Teknolojisi</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Ad SOYAD</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>14.04.2017</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>09:30</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>Derslik 5</p>
+                                    </td>
+                                </tr>
+                                <tr style='border-bottom-style: double; border-color: #FFFFFF;'>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Elektronik 2</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Kalite Güvence ve Standartlar</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.5vw; float: none;'>Ad SOYAD</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>19.04.2017</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>09:30</p>
+                                    </td>
+                                    <td class='tablosutunstandart'>
+                                        <p style='font-size: 1.8vw; float: none;'>Derslik 6</p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+
+                    <div class='item'>
+                        <img src="../demo/galeri/Universite_Mezuniyet.jpg" class="galeri_resim" />
+                    </div>
+
+                    <div class='item'>
+                        <img src="../demo/galeri/Universite_KulturSanat_Sergi_2.jpg" class="galeri_resim" />
+                    </div>
+
+                    <div class="item">
+                        <img src="../../temp/dosyalar/canliizle/png/fon.png" class="fon" />
+                        <p class="slidersola fon_sayfa_baslik">GÜNÜN SÖZÜ</p>
+                        <img src="../../temp/dosyalar/canliizle/png/gununsozu_kalem.png" class="gununsozu_resim" />
+                        <div class="gunusozu_kutu">
+                            <p class="gununsozu_yazi">
+                                &nbsp;&nbsp;&nbsp; Dünyada iki farklı insan var, bilmek isteyenler ve inanmak
+                                isteyenler.
+                            </p>
+                            <hr />
+                            <p class="gununsozu_soyleyen">Friedrich Nietzsche </p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="../../temp/dosyalar/canliizle/png/fon.png" class="fon" />
+                        <p class="slidersola fon_sayfa_baslik">GÜNÜN SÖZÜ</p>
+                        <img src="../../temp/dosyalar/canliizle/png/gununsozu_kalem.png" class="gununsozu_resim" />
+                        <div class="gunusozu_kutu">
+                            <p class="gununsozu_yazi">
+                                &nbsp;&nbsp;&nbsp; Hayat bir bisiklete binmek gibidir. Dengenizi korumak için hareket
+                                etmeye devam etmelisiniz.
+                                Dünyada iki farklı insan var, bilmek isteyenler ve inanmak isteyenler. Friedrich
+                                Nietzsche
+                            </p>
+                            <hr />
+                            <p class="gununsozu_soyleyen">Albert Einstein </p>
+                        </div>
+                    </div>
+
+
+                    <div class="item">
+                        <img src="../../temp/dosyalar/canliizle/png/fon.png" class="fon" />
+                        <p class="slidersola fon_sayfa_baslik">Karain Mağarası</p>
+                        <img src="../demo/resimlimodul/karain_mağarası_500-500.jpg" class="resimlimmodul_resim" />
+                        <p class="resimlimodul_yazi">
+                            Türkiye’nin en büyük doğal mağaralarından biridir. Antalya’nın 30 km kuzeybatısında, eski
+                            Antalya-Burdur karayoluna 6 km uzaklıkta bulunan Yağca Köyü sınırları içerisinde yer alıyor.
+                            1946’da başlanan ve halen devam eden kazılardan, günümüzden 500.000 yıl kadar önce de
+                            yerleşim merkezi olarak kullanıldığı sonucuna varılmış.
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <img src="../../temp/dosyalar/canliizle/png/fon.png" class="fon" />
+                        <p class="slidersola fon_sayfa_baslik">BAŞARILARIMIZ</p>
+                        <img src="../demo/basarimodulu/ogrenci.jpg" class="basarimodulu_resim" />
+                        <div class="basarimodulu_kutu">
+                            <p class="basarimodulu_baslik">Ayça ÇAĞAN</p>
+                            <hr />
+                            <p class="basarimodulu_yazi">ÜNİVERSİTEMİZDE DÜZENLENEN KOŞU YARIŞMASINDA YÜKSEKOKULUMUZU
+                                TEMSİL ETMİŞ VE YARIŞMADA BİRİNCİ OLMUŞTUR ÜSTÜN BAŞARISINDAN DOLAYI TEBRİK EDERİZ.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="../../temp/dosyalar/canliizle/png/fon.png" class="fon" />
+                        <p class="slidersola fon_sayfa_baslik">BİLGİ BANKASI</p>
+                        <img src="../demo/bilgibankasi/pi.jpg" class="bilgibankasi_resim" />
+                        <p class="bilgibankasi_baslik">Pi sayısı Nedir?</p>
+                        <p class="bilgibankasi_aciklama">Bir dairenin çevresinin çapına bölümü ile elde edilen
+                            irrasyonel matematik sabiti'dir. Pi sayısı, Arşimet sabiti ve Ludolph sayısı olarak da
+                            bilinir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="orta_logo" src="../../temp/dosyalar/canliizle/png/universitelogo.png" />
+
+        <div class="sag_bolum_zemin sag_bolum">
+            <p class="sagbolum_ust_cizgi"></p>
+            <div class="sag_tarih_saat_kutu">
+                <p class="sag_tarih_gun">
+                    17 Nisan 2019
+                    Çarşamba
+                </p>
+                <div class="sag_saat" id="saatim"></div>
+            </div>
+
+
+            <div class="sag_bosluk">
+                <div id="etkinlikslider" class="carousel slide" data-interval="6000" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class='item active'>
+                            <p class="sagbaslikalti sag_baslik">TEKNOLOJİDE NEREDEYİZ...</p>
+                            <p class="sag_icerik_orta">ALİ DURAN</p>
+                            <p class="sag_icerik_orta">12 NİSAN SALI- 14:30 </p>
+                            <p class="sag_icerik_orta">KONFERANS SALONU</p>
+                        </div>
+                        <div class='item'>
+                            <p class="sagbaslikalti sag_baslik">GELİŞEN TEKNOLOJİ</p>
+                            <p class="sag_icerik_orta">ATA DURAN</p>
+                            <p class="sag_icerik_orta">13 NİSAN ÇARŞAMBA- 14:30 </p>
+                            <p class="sag_icerik_orta">AMFİ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sag_bosluk">
+                <video style="width: 100%;" autoplay="autoplay" muted="muted" loop="loop">
+                    <source src="../../temp/dosyalar/dtvideo.mp4" type="video/mp4" /></video>
+            </div>
+
+
+            <div class="sag_bosluk">
+                <div id="yemekmenuslider" class="carousel slide" data-interval="7000" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class='item active'>
+                            <p class="sagbaslikalti sag_baslik">Akşam Yemeği</p>
+                            <p class="sag_icerik_kucuk">Mercimek Çorbası - Etli Nohut</p>
+                            <p class="sag_icerik_kucuk">Salata - Tatlı </p>
+                        </div>
+                        <div class='item'>
+                            <p class="sagbaslikalti sag_baslik">ÖĞLE YEMEĞİ</p>
+                            <p class="sag_icerik_kucuk">Tavk Çorbası - Fasülye</p>
+                            <p class="sag_icerik_kucuk">Pilav - Salata </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alt_endis">
+            <div class="alt_kayanlar">
+
+                <div class="kayandersprogrami_alti_zemin kayandersprogrami_kutu">
+                    <div class="zilekalansure_zemin zile_kalan_sure_kutu">
+                        <div id="sayacslider" class="carousel slide" data-interval="6000" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <p class="zile_kalan_sure_baslik">MEZUNİYET TÖRENİNE</p>
+                                    <p class="sayac_universite">52 GÜN KALDI </p>
+                                </div>
+                                <div class="item">
+                                    <p class="zile_kalan_sure_baslik">FİNALLERE</p>
+                                    <p class="sayac_universite">25 GÜN KALDI </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="kayandersprogrami_baslik">GÜNÜN DERSLERİ</p>
+                    <marquee scrollamount="10" direction="left" class="kayandersprogrami_yazi">
+                        iŞLETME 1 İktisada Giriş I (AYŞE ÇALIŞKAN) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; İŞLETME 2
+                        Tüketici Davranışları (ALİ BİLGİN) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ELEKTRİK 1 Fizik I
+                        (MEHMET SARAL) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BİLGİSAYAR MÜHENDİSLİĞİ 2 Veri
+                        Yapıları (AHMET İLAN) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DİŞ HEKİMLİĞİ 2 Epidemiyoloji
+                        (SADİ KAYA) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MÜZİK ÖĞRETMENLİĞİ 1 -
+                    </marquee>
+                </div>
+                <div class="duyuruzemin duyuru_kutu">
+                    <img src="../../temp/dosyalar/canliizle/png/duyurubaslik.png" class="duyuru_icon">
+                    <marquee scrollamount="16" direction="left" class="duyuru_yazi">
+                        DuyuruTV kanalımız yayına girmiştir. Önümüzdeki hafta planlanan BÖLGEMİZİ TANIYALIM temalı
+                        gezimiz Hava şartları nedeniyle bir sonraki haftaya ertelenmiştir.</marquee>
+                </div>
+                <div class="haberbandizemin haberbandi_kutu">
+                    <marquee scrollamount="13" direction="left" class="haberbandi_yazi">
+                        HACETTEPE, BİLKENT VE BAŞKENT ÜNİVERSİTELERİ ARASINDA TÜTÜN KULLANIMININ ÖNLENMESİNE DAİR İŞ
+                        BİRLİĞİNİ KAPSAYAN ‘TÜTÜNSÜZ ÜNİVERSİTE İÇİN ADIM ADIM’ PROJESİ, HACETTEPE ÜNİVERSİTESİ SIHHİYE
+                        YERLEŞKESİNDE DÜZENLENEN TOPLANTIDA TANITILDI. TOPLANTIYA HACETTEPE ÜNİVERSİTESİ REKTÖRÜ PROF.
+                        DR. HALUK ÖZEN,
+                        BİLKENT ÜNİVERSİTESİ REKTÖRÜ PROF. DR. ABDULLAH ATALAR VE BAŞKENT ÜNİVERSİTESİ REKTÖRÜ PROF. DR.
+                        ALİ HABERAL KATILDI.
+                    </marquee>
+                    <img src="../../temp/dosyalar/canliizle/png/haberbandi/trt.png" class="haberbandi_icon" />
+                    <img src="../../temp/dosyalar/canliizle/png/sagaltlogo.png" class="haberbandi_dtlogo" />
+                </div>
+            </div>
+
+            <div class="havadurumu_zemin havadurumu_kutu">
+                <div id="havadurumuslider" class="carousel slide" data-interval="9000" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-inner">
+
+                            <div class='item active'>
+                                <p class="havadurumu_gun">BUGÜN</p>
+                                <img src='../../temp/dosyalar/canliizle/hava_durumu/02d.svg' class="havadurumu_icon" />
+                                <p class="havadurumu_yer">ANTALYA</p>
+                                <p class="havadurumu_derece">21&deg;</p>
+                            </div>
+
+                            <div class='item '>
+                                <p class="havadurumu_gun">YARIN</p>
+                                <img src='../../temp/dosyalar/canliizle/hava_durumu/02d.svg' class="havadurumu_icon" />
+                                <p class="havadurumu_yer">ANTALYA</p>
+                                <p class="havadurumu_derece">17&deg;</p>
+                            </div>
+
+                            <div class='item '>
+                                <p class="havadurumu_gun">Cuma</p>
+                                <img src='../../temp/dosyalar/canliizle/hava_durumu/03d.svg' class="havadurumu_icon" />
+                                <p class="havadurumu_yer">ANTALYA</p>
+                                <p class="havadurumu_derece">16&deg;</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
