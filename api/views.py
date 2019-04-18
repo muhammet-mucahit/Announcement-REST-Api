@@ -9,7 +9,6 @@ class PanelList(generics.ListAPIView):
     queryset = Panel.objects.all()
     serializer_class = PanelSerializer
 
-
 class PanelDetail(generics.RetrieveAPIView):
     queryset = Panel.objects.all()
     serializer_class = PanelSerializer
