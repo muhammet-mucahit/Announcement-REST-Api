@@ -1,57 +1,83 @@
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-    <title>PANEL</title>
-</head>
-
-<body>
-
-    <h1>The XMLHttpRequest Object</h1>
-
-    <button type="button" onclick="loadDoc()">Request data</button>
-
-    <p id="demo"></p>
-
-    <script>
-        function loadDoc() {
-            var xhttp = new XMLHttpRequest();
-            var url = "http://127.0.0.1:8000/api/v1/panel/";
-            xhttp.open("GET", url, true);
-            xhttp.setRequestHeader("Content-type", "application/json");
-            xhttp.send();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var panels = JSON.parse(this.responseText);
-                    document.getElementById("demo").innerHTML = panels[0]["title"];
-                }
-            };
-        }
-    </script>
-
-</body>
-
-</html> -->
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>
-        Üniversite Örnek Sayfası | DuyuruTV
-    </title>
+    <meta charset="utf-8">
+    <title id="title"></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <link id="favicon" rel="shortcut icon" type="image/png" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet" type="text/css" />
-    <link id="csstasarim" href="css/stil_lacivert.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" href="../../ico.png" />
-    <link href="css/stil_yeni.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:900" type="text/css" />
+    <link rel="stylesheet" href="css/stil_lacivert.css" type="text/css" />
+    <link rel="stylesheet" href="css/stil_yeni.css" />
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            var url = "http://127.0.0.1:8000/api/v1/panel/2/";
+            xhttp.open("GET", url, true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var panel = JSON.parse(this.responseText);
+                    document.getElementById("favicon").href = panel["icon"];
+                    // document.getElementById("uni_logo").src = panel["icon"];
+                    document.getElementById("title").innerHTML = panel["title"];
+
+                    var sliding_texts = panel["sliding_texts"];
+                    var sliding_text = "";
+                    var i = 0;
+                    sliding_texts.forEach(element => {
+                        sliding_text += element["text"];
+                        if (i != sliding_texts.length - 1)
+                            sliding_text += " &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;";
+                        i++;
+                    });
+                    document.getElementById("kayan_yazi_duyuru").innerHTML = sliding_text;
+                }
+            };
+        }
+
+        function loadVideo() {
+            var xhttp = new XMLHttpRequest();
+            var url = "http://127.0.0.1:8000/api/v1/panel/2/";
+            xhttp.open("GET", url, true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var panel = JSON.parse(this.responseText);
+
+                    var video = document.getElementById('video');
+                    var source = document.createElement('source');
+
+                    video.setAttribute('src', panel['video']);
+                    video.appendChild(source);
+                }
+            };
+        }
+
+        $(document).ready(function () {
+            loadVideo();
+            loadDoc();
+            setInterval(loadDoc, 5000);
+        });
+    </script>
+
     <script type="text/javascript">
         var timer1ID;
         function timer1_Tick() {
+            var MONTHS = new Array("Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık");
+            var DAYS = new Array("Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi");
+
             var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth();
+            var day = now.getDate();
+            var weekday = now.getDay();
+
             if (now.getHours() < 10)
                 hours = "0" + now.getHours();
             else
@@ -66,22 +92,14 @@
             else
                 seconds = now.getSeconds();
 
+            var tarih = day + " " + MONTHS[month] + " " + year + " " + DAYS[weekday];
             var saat = hours + ":" + minutes + ":" + seconds;
 
+            document.getElementById("tarih").innerHTML = tarih;
             document.getElementById("saatim").innerHTML = saat;
-
-            if (minutes + ":" + seconds == "13:13") {
-                $.ajax({
-                    url: 'ico.png',
-                    success: function (data) {
-                        location.reload();
-                    },
-                    error: function (data) {
-                    }
-                });
-            }
         }
         $(document).ready(function () {
+            timer1_Tick();
             timer1ID = setInterval(timer1_Tick, 1000);
         });
     </script>
@@ -93,12 +111,15 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
+                    <video id="video" style="width: 107%;" autoplay="autoplay" muted="muted" loop="loop">
+                    </video>
+                </div>
+
+                <!-- <div class="item active">
                     <img src="https://www.duyurutv.com/temp/dosyalar/canliizle/png/fon.png" class="fon" />
                     <div class="ilkekran_yazi_kutu">
                         <p class="ilkekran_yazi">
                             ÖRNEK ÜNİVERSİTE<br />
-                            KANALINA HOŞ GELDİNİZ...<br />
-                            <br />
                             <img style='width: 20%'
                                 src='https://www.duyurutv.com/temp/dosyalar/canliizle/png/duyurutv_logo_sagalt_buyuk.png' />
                         </p>
@@ -552,21 +573,21 @@
                     <p class="bilgibankasi_aciklama">Bir dairenin çevresinin çapına bölümü ile elde edilen
                         irrasyonel matematik sabiti'dir. Pi sayısı, Arşimet sabiti ve Ludolph sayısı olarak da
                         bilinir.</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
-    <img class="orta_logo" src="https://www.duyurutv.com/temp/dosyalar/canliizle/png/universitelogo.png" />
+    <!-- <img id="uni_logo" class="orta_logo" /> -->
 
+    <!-- SAG BOLUM -->
     <div class="sag_bolum_zemin sag_bolum">
+
+        <!-- SAAT VE TARIH -->
         <p class="sagbolum_ust_cizgi"></p>
         <div class="sag_tarih_saat_kutu">
-            <p class="sag_tarih_gun">
-                17 Nisan 2019 Çarşamba
-            </p>
+            <p id="tarih" class="sag_tarih_gun"></p>
             <div class="sag_saat" id="saatim"></div>
         </div>
-
 
         <div class="sag_bosluk">
             <div id="etkinlikslider" class="carousel slide" data-interval="6000" data-ride="carousel">
@@ -589,8 +610,8 @@
         </div>
 
         <div class="sag_bosluk">
-            <video style="width: 100%;" autoplay="autoplay" muted="muted" loop="loop">
-                <source src="https://www.duyurutv.com/temp/dosyalar/dtvideo.mp4" type="video/mp4" /></video>
+            <!-- <video id="video" style="width: 100%;" autoplay="autoplay" muted="muted" loop="loop">
+            </video> -->
         </div>
 
 
@@ -641,7 +662,7 @@
             </div>
             <div class="duyuruzemin duyuru_kutu">
                 <img src="https://www.duyurutv.com/temp/dosyalar/canliizle/png/duyurubaslik.png" class="duyuru_icon">
-                <marquee scrollamount="16" direction="left" class="duyuru_yazi">
+                <marquee id="kayan_yazi_duyuru" scrollamount="16" direction="left" class="duyuru_yazi">
                     DuyuruTV kanalımız yayına girmiştir. Önümüzdeki hafta planlanan BÖLGEMİZİ TANIYALIM temalı
                     gezimiz Hava şartları nedeniyle bir sonraki haftaya ertelenmiştir.
                 </marquee>

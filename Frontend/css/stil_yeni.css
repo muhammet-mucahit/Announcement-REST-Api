@@ -92,9 +92,9 @@ div {
 
 .orta_logo {
     text-align: left;
-    padding-left: 0.3%;
-    padding-top: 0.3%;
-    width: 11%;
+    padding-left: 1%;
+    padding-top: 1%;
+    width: 10%;
     filter: drop-shadow(3px 3px 3px #000);
 }
 
@@ -583,15 +583,7 @@ div {
     /* Old browsers */
     background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(255, 0, 0, 1) 20%, rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
     /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(255, 0, 0, 1) 20%, rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 1) 80%, rgba(0, 0, 0, 0)) 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(255, 0, 0, 1) 20%, rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#255581', endColorstr='#255581', GradientType=1);
-    /* IE6-9 */
-    width: 100%;
-    padding: 0.5%;
-    font-size: 1.9vw;
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(255, 0, 0, 1) 20%, rgba(255, 0, 0, 1) 10%, rgba(255, 0, 0, 1) 80%, rgba(0, 0, 0, 0)) 100%;
 }
 
 .sag_tarih_saat_kutu {
