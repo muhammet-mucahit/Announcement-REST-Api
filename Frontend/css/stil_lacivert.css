@@ -35,18 +35,18 @@ p {
 }
 
 .sagbaslikalti {
-    text-align: right;
+    text-align: center;
     margin: 0px;
     border-spacing: 1px;
     background: rgb(37,85,129); /* Old browsers */
-    background: -moz-linear-gradient(left,rgba(0,0,0,0) 0%, rgba(255,255,0,1) 20%, rgba(255,255,0,1) 10%, rgba(255,255,0,1) 80%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(255,255,0,1) 20%, rgba(255,255,0,1) 10%, rgba(255,255,0,1) 80%,rgba(0,0,0,0)) 100%; /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(15, 83, 159, 0.5) 20%, rgba(15, 83, 159, 1) 50%,rgba(15, 83, 159, 1) 20% 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -moz-linear-gradient(left,rgba(0,0,0,0) 0%, rgba(255,0,0,1) 20%, rgba(255,0,0,1) 10%, rgba(255,0,0,1) 80%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(255,0,0,1) 20%,rgba(255,0,0,1) 10%,rgba(255,0,0,1) 80%,rgba(0,0,0,0)) 100%; /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(255,0,0,1) 20%,rgba(255,0,0,1) 10%,rgba(255,0,0,1) 80%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#255581', endColorstr='#255581',GradientType=1 ); /* IE6-9 */
 }
 
 .slider_alti_zemin {
-    background: #002147;
+    background: #000726;
 }
 
 .havadurumu_zemin {
@@ -58,11 +58,11 @@ p {
 }
 
 .sag_bolum_zemin {
-    background:#002147;
-    /* background: -moz-linear-gradient(45deg, rgba(0,7,38,1) 52%, rgba(0,0,0,1) 100%);
+    background: rgb(3,0,102);
+    background: -moz-linear-gradient(45deg, rgba(0,7,38,1) 52%, rgba(0,0,0,1) 100%);
     background: -webkit-linear-gradient(45deg, rgba(0,7,38,1) 52%,rgba(0,0,0,1) 100%);
     background: linear-gradient(45deg, rgba(0,7,38,1) 52%,rgba(0,0,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000726', endColorstr='#000000',GradientType=1 ); */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000726', endColorstr='#000000',GradientType=1 );
 }
 
 .kayandersprogrami_alti_zemin {
