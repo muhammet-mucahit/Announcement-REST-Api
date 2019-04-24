@@ -33,7 +33,7 @@ function timer() {
 // Send ajax request and run func parameter
 function sendAjaxRequest(func) {
     var xhttp = new XMLHttpRequest();
-    var url = "http://127.0.0.1:8000/api/v1/panel/1/";
+    var url = "http://192.168.1.104:8000/api/v1/panel/1/";
     xhttp.open("GET", url, true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
