@@ -33,7 +33,7 @@ function timer() {
 // Send ajax request and run func parameter
 function sendAjaxRequest(func) {
     var xhttp = new XMLHttpRequest();
-    var url = "http://127.0.0.1:8000/api/v1/panel/1/";
+    var url = "http://192.168.1.104:8000/api/v1/panel/1/";
     xhttp.open("GET", url, true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
@@ -153,3 +153,15 @@ $(document).ready(function () {
     setInterval(timer, 1000);
     setInterval(loadDoc, 12000);
 });
+
+var div = document.getElementById( 'asd' );
+div.onmouseover = function() {
+  this.style.backgroundColor = 'green';
+  var h2s = this.getElementsByTagName( 'h2' );
+  h2s[0].style.backgroundColor = 'blue';
+};
+div.onmouseout = function() {
+  this.style.backgroundColor = 'transparent';
+  var h2s = this.getElementsByTagName( 'h2' );
+  h2s[0].style.backgroundColor = 'transparent';
+};
