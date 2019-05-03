@@ -6,10 +6,12 @@ class SlidingTextSerializer(serializers.ModelSerializer):
         model = SlidingText
         fields = ('text',)
 
+
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Activity
         fields = ('title', 'owner', 'date', 'address',)
+
 
 class PanelSerializer(serializers.ModelSerializer):
     sliding_texts = SlidingTextSerializer(many=True)
@@ -17,4 +19,5 @@ class PanelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Panel
-        fields = ('icon', 'title', 'video', 'sliding_texts', 'activities', 'weather_city',)
+        fields = ('icon', 'title', 'video', 'sliding_texts',
+                  'activities', 'weather_city',)

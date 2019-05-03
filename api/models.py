@@ -1,11 +1,19 @@
 from django.db import models
 
 
+class City(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return "{}".format(self.name)
+
+
 class Panel(models.Model):
-    icon = models.ImageField(upload_to='panel_icon', blank=True)
-    title = models.CharField(max_length=100, blank=True, default='')
+    icon = models.ImageField(upload_to='panel_icon')
+    title = models.CharField(max_length=100, default='')
     video = models.FileField(upload_to='videos', blank=True)
-    weather_city = models.CharField(max_length=100, default='Trabzon')
+    weather_city = models.ForeignKey(
+        City, on_delete=models.CASCADE, related_name='weather_city', to_field='name')
 
     def __str__(self):
         return "{} - {} - {} - {}".format(self.icon, self.title, self.video, self.weather_city)
