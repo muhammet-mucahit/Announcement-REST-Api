@@ -146,10 +146,21 @@ function loadWeatherData(city) {
         });
 }
 
+function loadTimetable() {
+    sendAjaxRequest(function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var panel = JSON.parse(this.responseText);
+
+            alert(panel['timetable']);
+        }
+    });
+}
+
 $(document).ready(function () {
     loadDoc();
     loadVideo();
     timer();
     setInterval(timer, 1000);
     setInterval(loadDoc, 12000);
+    loadTimetable();
 });
