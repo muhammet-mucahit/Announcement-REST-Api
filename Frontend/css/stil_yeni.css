@@ -52,10 +52,10 @@ html {
 }
 
 .orta_logo {
-    text-align: left;
-    padding-left: 0.3%;
-    padding-top: 0.3%;
-    width: 11%;
+    padding-left: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 30%;
     filter: drop-shadow(3px 3px 3px #000);
 }
 

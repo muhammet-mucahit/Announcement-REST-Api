@@ -45,7 +45,7 @@ function loadDoc() {
         if (this.readyState == 4 && this.status == 200) {
             var panel = JSON.parse(this.responseText);
             document.getElementById("favicon").href = panel["icon"];
-            // document.getElementById("uni_logo").src = panel["icon"];
+            document.getElementById("uni_logo").src = panel["icon"];
             document.getElementById("title").innerHTML = panel["title"];
             var city = panel["weather_city"];
             loadWeatherData(city);
@@ -62,54 +62,114 @@ function loadDoc() {
             document.getElementById("kayan_yazi_duyuru").innerHTML = sliding_text;
 
             var activities = panel["activities"];
+            loadActivities(activities);
 
-            var etkinlik_slide = document.getElementById('etkinlik_slide');
-            while (etkinlik_slide.firstChild) {
-                etkinlik_slide.removeChild(etkinlik_slide.firstChild);
-            }
-
-            var i;
-            for (i = 0; i < activities.length; i++) {
-                var date = new Date(activities[i]["date"].split("T")[0]);
-                var time = activities[i]["date"].split("T")[1];
-                var month = date.getMonth();
-                var day = date.getDate();
-                var weekday = date.getDay();
-                var hour = time.split(":")[0];
-                var minute = time.split(":")[1];
-
-                var tarih = day + " " + MONTHS[month] + " " + DAYS[weekday];
-                var saat = hour + ":" + minute;
-
-                var etkinlik_div = document.createElement('div');
-                etkinlik_div.classList.add('item');
-                if (i == 0) etkinlik_div.classList.add('active');
-
-                var etkinlik_p_baslik = document.createElement('p');
-                etkinlik_p_baslik.classList.add('sagbaslikalti');
-                etkinlik_p_baslik.classList.add('sag_baslik');
-                etkinlik_p_baslik.innerHTML = activities[i]["title"];
-
-                var etkinlik_p_sahip = document.createElement('p');
-                etkinlik_p_sahip.classList.add('sag_icerik_orta');
-                etkinlik_p_sahip.innerHTML = activities[i]["owner"];
-
-                var etkinlik_p_tarih = document.createElement('p');
-                etkinlik_p_tarih.classList.add('sag_icerik_orta');
-                etkinlik_p_tarih.innerHTML = tarih + " - " + saat;
-
-                var etkinlik_p_adres = document.createElement('p');
-                etkinlik_p_adres.classList.add('sag_icerik_orta');
-                etkinlik_p_adres.innerHTML = activities[i]["address"];
-
-                etkinlik_div.appendChild(etkinlik_p_baslik);
-                etkinlik_div.appendChild(etkinlik_p_sahip);
-                etkinlik_div.appendChild(etkinlik_p_tarih);
-                etkinlik_div.appendChild(etkinlik_p_adres);
-                etkinlik_slide.appendChild(etkinlik_div);
-            }
+            var classes = panel["classes"];
+            loadClasses(classes);
         }
     });
+}
+
+// LOADS CLASSES
+function loadClasses(var_class) {
+    var classes = var_class;
+
+    var ders_slide = document.getElementById('ders_slide');
+    while (ders_slide.firstChild) {
+        ders_slide.removeChild(ders_slide.firstChild);
+    }
+
+    var i;
+    for (i = 0; i < classes.length; i++) {
+        var day = classes[i]["day"];
+        var start_time = classes[i]["start_time"].split(":");
+        var end_time = classes[i]["end_time"].split(":");
+        var start_hour = start_time[0] + ":" + start_time[1];
+        var end_hour = end_time[0] + ":" + end_time[1];
+
+        var ders_div = document.createElement('div');
+        ders_div.classList.add('item');
+        if (i == 0) ders_div.classList.add('active');
+
+        var ders_p_isim = document.createElement('p');
+        ders_p_isim.classList.add('sagbaslikalti');
+        ders_p_isim.classList.add('sag_baslik');
+        ders_p_isim.innerHTML = classes[i]["name"];
+
+        var ders_p_profesor = document.createElement('p');
+        ders_p_profesor.classList.add('sag_icerik_orta');
+        ders_p_profesor.innerHTML = classes[i]["professor"];
+
+        var ders_p_gun = document.createElement('p');
+        ders_p_gun.classList.add('sag_icerik_orta');
+        ders_p_gun.innerHTML = day;
+
+        var ders_p_baslangic_bitis = document.createElement('p');
+        ders_p_baslangic_bitis.classList.add('sag_icerik_orta');
+        ders_p_baslangic_bitis.innerHTML = start_hour + " - " + end_hour;
+
+        var ders_p_sinif = document.createElement('p');
+        ders_p_sinif.classList.add('sag_icerik_orta');
+        ders_p_sinif.innerHTML = classes[i]["classroom"];
+
+        ders_div.appendChild(ders_p_isim);
+        ders_div.appendChild(ders_p_profesor);
+        ders_div.appendChild(ders_p_gun);
+        ders_div.appendChild(ders_p_baslangic_bitis);
+        ders_div.appendChild(ders_p_sinif);
+        ders_slide.appendChild(ders_div);
+    }
+}
+
+// LOADS ACTIVITIES
+function loadActivities(activity) {
+    var activities = activity;
+
+    var etkinlik_slide = document.getElementById('etkinlik_slide');
+    while (etkinlik_slide.firstChild) {
+        etkinlik_slide.removeChild(etkinlik_slide.firstChild);
+    }
+
+    var i;
+    for (i = 0; i < activities.length; i++) {
+        var date = new Date(activities[i]["date"].split("T")[0]);
+        var time = activities[i]["date"].split("T")[1];
+        var month = date.getMonth();
+        var day = date.getDate();
+        var weekday = date.getDay();
+        var hour = time.split(":")[0];
+        var minute = time.split(":")[1];
+
+        var tarih = day + " " + MONTHS[month] + " " + DAYS[weekday];
+        var saat = hour + ":" + minute;
+
+        var etkinlik_div = document.createElement('div');
+        etkinlik_div.classList.add('item');
+        if (i == 0) etkinlik_div.classList.add('active');
+
+        var etkinlik_p_baslik = document.createElement('p');
+        etkinlik_p_baslik.classList.add('sagbaslikalti');
+        etkinlik_p_baslik.classList.add('sag_baslik');
+        etkinlik_p_baslik.innerHTML = activities[i]["title"];
+
+        var etkinlik_p_sahip = document.createElement('p');
+        etkinlik_p_sahip.classList.add('sag_icerik_orta');
+        etkinlik_p_sahip.innerHTML = activities[i]["owner"];
+
+        var etkinlik_p_tarih = document.createElement('p');
+        etkinlik_p_tarih.classList.add('sag_icerik_orta');
+        etkinlik_p_tarih.innerHTML = tarih + " - " + saat;
+
+        var etkinlik_p_adres = document.createElement('p');
+        etkinlik_p_adres.classList.add('sag_icerik_orta');
+        etkinlik_p_adres.innerHTML = activities[i]["address"];
+
+        etkinlik_div.appendChild(etkinlik_p_baslik);
+        etkinlik_div.appendChild(etkinlik_p_sahip);
+        etkinlik_div.appendChild(etkinlik_p_tarih);
+        etkinlik_div.appendChild(etkinlik_p_adres);
+        etkinlik_slide.appendChild(etkinlik_div);
+    }
 }
 
 // LOAD MAIN VIDEO
@@ -127,6 +187,7 @@ function loadVideo() {
     });
 }
 
+// LOADS WEATHER FROM AN EXTERNAL API
 function loadWeatherData(city) {
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?appid=7a31fdf28b96ec19bac9997103fa4c64&q=" + city,
         function (response) {
@@ -146,21 +207,10 @@ function loadWeatherData(city) {
         });
 }
 
-function loadTimetable() {
-    sendAjaxRequest(function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var panel = JSON.parse(this.responseText);
-
-            alert(panel['timetable']);
-        }
-    });
-}
-
 $(document).ready(function () {
     loadDoc();
     loadVideo();
     timer();
     setInterval(timer, 1000);
     setInterval(loadDoc, 12000);
-    loadTimetable();
 });
