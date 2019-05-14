@@ -1,4 +1,3 @@
 # Announcement-Website
 
-Username = admin
-Password = admin1234
+![](https://media.giphy.com/media/kg60TMps3xd41likLX/giphy.gif)
