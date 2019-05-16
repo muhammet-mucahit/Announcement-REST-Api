@@ -14,8 +14,7 @@ class ActivitySerializer(serializers.ModelSerializer):
 class ClassSerializer(serializers.ModelSerializer):
     class Meta:
         model = Class
-        fields = ('name', 'professor', 'day', 'start_time', 'end_time', 'classroom')
-
+        fields = ('title', 'owner', 'day', 'start_time', 'end_time', 'address')
 
 class PanelSerializer(serializers.ModelSerializer):
     sliding_texts = SlidingTextSerializer(many=True)
