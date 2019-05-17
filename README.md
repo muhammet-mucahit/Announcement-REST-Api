@@ -18,7 +18,6 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-
 ## Example Project
 
 ![Announcement](https://media.giphy.com/media/kg60TMps3xd41likLX/giphy.gif)
