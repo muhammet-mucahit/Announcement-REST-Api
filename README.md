@@ -1,3 +1,3 @@
 # Announcement-Website
 
-![](https://media.giphy.com/media/kg60TMps3xd41likLX/giphy.gif)
+![](https://media.giphy.com/media/2w6dRCVvqooGtVnXEh/giphy.gif)
