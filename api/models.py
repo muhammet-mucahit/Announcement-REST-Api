@@ -1,22 +1,96 @@
 from django.db import models
 import datetime
 
-
-class City(models.Model):
-    name = models.CharField(max_length=100, unique=True,
-                            default="Trabzon", blank=False)
-
-    def __str__(self):
-        return "{}".format(self.name)
-
+CITIES = (
+        ('Adana', 'Adana'),
+        ('Adıyaman', 'Adıyaman'),
+        ('Afyon', 'Afyon'),
+        ('Ağrı', 'Ağrı'),
+        ('Amasya', 'Amasya'),
+        ('Ankara', 'Ankara'),
+        ('Antalya', 'Antalya'),
+        ('Artvin', 'Artvin'),
+        ('Aydın', 'Aydın'),
+        ('Balıkesir', 'Balıkesir'),
+        ('Bilecik', 'Bilecik'),
+        ('Bingöl', 'Bingöl'),
+        ('Bitlis', 'Bitlis'),
+        ('Bolu', 'Bolu'),
+        ('Burdur', 'Burdur'),
+        ('Bursa', 'Bursa'),
+        ('Çanakkale', 'Çanakkale'),
+        ('Çankırı', 'Çankırı'),
+        ('Çorum', 'Çorum'),
+        ('Denizli', 'Denizli'),
+        ('Diyarbakır', 'Diyarbakır'),
+        ('Edirne', 'Edirne'),
+        ('Elazığ', 'Elazığ'),
+        ('Erzincan', 'Erzincan'),
+        ('Erzurum', 'Erzurum'),
+        ('Eskişehir', 'Eskişehir'),
+        ('Gaziantep', 'Gaziantep'),
+        ('Giresun', 'Giresun'),
+        ('Gümüşhane', 'Gümüşhane'),
+        ('Hakkari', 'Hakkari'),
+        ('Hatay', 'Hatay'),
+        ('Isparta', 'Isparta'),
+        ('Mersin', 'Mersin'),
+        ('Istanbul', 'Istanbul'),
+        ('Izmir', 'Izmir'),
+        ('Kars', 'Kars'),
+        ('Kastamonu', 'Kastamonu'),
+        ('Kayseri', 'Kayseri'),
+        ('Kırklareli', 'Kırklareli'),
+        ('Kırşehir', 'Kırşehir'),
+        ('Kocaeli', 'Kocaeli'),
+        ('Konya', 'Konya'),
+        ('Kütahya', 'Kütahya'),
+        ('Malatya', 'Malatya'),
+        ('Manisa', 'Manisa'),
+        ('Kahramanmaraş', 'Kahramanmaraş'),
+        ('Mardin', 'Mardin'),
+        ('Muğla', 'Muğla'),
+        ('Muş', 'Muş'),
+        ('Nevşehir', 'Nevşehir'),
+        ('Niğde', 'Niğde'),
+        ('Ordu', 'Ordu'),
+        ('Rize', 'Rize'),
+        ('Sakarya', 'Sakarya'),
+        ('Samsun', 'Samsun'),
+        ('Siirt', 'Siirt'),
+        ('Sinop', 'Sinop'),
+        ('Sivas', 'Sivas'),
+        ('Tekirdağ', 'Tekirdağ'),
+        ('Tokat', 'Tokat'),
+        ('Trabzon', 'Trabzon'),
+        ('Tunceli', 'Tunceli'),
+        ('Şanlıurfa', 'Şanlıurfa'),
+        ('Uşak', 'Uşak'),
+        ('Van', 'Van'),
+        ('Yozgat', 'Yozgat'),
+        ('Zonguldak', 'Zonguldak'),
+        ('Aksaray', 'Aksaray'),
+        ('Bayburt', 'Bayburt'),
+        ('Karaman', 'Karaman'),
+        ('Kırıkkale', 'Kırıkkale'),
+        ('Batman', 'Batman'),
+        ('Şırnak', 'Şırnak'),
+        ('Bartın', 'Bartın'),
+        ('Ardahan', 'Ardahan'),
+        ('Iğdır', 'Iğdır'),
+        ('Yalova', 'Yalova'),
+        ('Karabük', 'Karabük'),
+        ('Kilis', 'Kilis'),
+        ('Osmaniye', 'Osmaniye'),
+        ('Düzce', 'Düzce')
+    )        
 
 class Panel(models.Model):
     icon = models.ImageField(upload_to='panel_icon', blank=True)
     title = models.CharField(max_length=100, default='')
     video = models.FileField(
         upload_to='videos', blank=False, verbose_name="Video (mp4)")
-    weather_city = models.ForeignKey(
-        City, on_delete=models.CASCADE, related_name='weather_city', to_field='name')
+    weather_city = models.CharField(max_length=20, choices=CITIES, default='Trabzon')
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
